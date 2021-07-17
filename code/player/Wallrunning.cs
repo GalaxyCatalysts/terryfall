@@ -11,7 +11,7 @@ namespace Terryfall
 	partial class TerryfallPlayer
 	{
 		public float BodyHeight = 72.0f;
-		public float WallDistance = 50.0f;
+		public float WallDistance = 35.0f;
 
 		public void CheckforWallrun()
 		{
@@ -24,8 +24,8 @@ namespace Terryfall
 
 		void WallLeftTrace()
 		{
-			var startPos = (Position + BodyHeight / 2);
-			var endPos = (Position + BodyHeight / 2) + EyeRot.Left * WallDistance;
+			var startPos = EyePos;
+			var endPos = EyePos + EyeRot.Left * WallDistance;
 
 			var wallLeftTrace = Trace.Ray( startPos, endPos )
 				.WorldOnly()
@@ -45,8 +45,8 @@ namespace Terryfall
 
 		void WallRightTrace()
 		{
-			var startPos = (Position + BodyHeight / 2);
-			var endPos = (Position + BodyHeight / 2) + EyeRot.Right * WallDistance;
+			var startPos = EyePos;
+			var endPos = EyePos + EyeRot.Right * WallDistance;
 			var wallRightTrace = Trace.Ray( startPos, endPos )
 				.WorldOnly()
 				.Run();
