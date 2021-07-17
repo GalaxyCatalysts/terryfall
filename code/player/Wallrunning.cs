@@ -11,7 +11,7 @@ namespace Terryfall
 	partial class TerryfallPlayer
 	{
 		public float BodyHeight = 72.0f;
-		public float WallDistance = 35.0f;
+		public float WallDistance = 20.0f;
 
 		public void CheckforWallrun()
 		{
