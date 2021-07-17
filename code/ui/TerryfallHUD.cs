@@ -1,4 +1,5 @@
-﻿using Sandbox.UI;
+﻿using Sandbox;
+using Sandbox.UI;
 
 //
 // You don't need to put things in a namespace, but it doesn't hurt.
@@ -17,6 +18,23 @@ namespace Terryfall
 			{
 				RootPanel.SetTemplate( "/ui/terryfallhud.html" );
 			}
+		}
+	}
+
+	[Library]
+	public partial class TerryfallHUD : HudEntity<RootPanel>
+	{
+		public TerryfallHUD()
+		{
+			if ( !IsClient )
+				return;
+
+			RootPanel.StyleSheet.Load( "/overflowhud.scss" );
+
+			RootPanel.AddChild<ChatBox>();
+			RootPanel.AddChild<NameTags>();
+			RootPanel.AddChild<VoiceList>();
+			RootPanel.AddChild<Scoreboard<ScoreboardEntry>>();
 		}
 	}
 

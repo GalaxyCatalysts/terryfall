@@ -10,11 +10,14 @@ namespace Terryfall
 	}
 	partial class TerryfallPlayer
 	{
-		public float BodyHeight { get; set; } = 72.0f;
-		public float WallDistance { get; set; } = 75.0f;
+		public float BodyHeight = 72.0f;
+		public float WallDistance = 65.0f;
 
 		public void CheckforWallrun()
 		{
+			if ( !IsClient )
+				return;
+
 			WallLeftTrace();
 			WallRightTrace();
 		}
