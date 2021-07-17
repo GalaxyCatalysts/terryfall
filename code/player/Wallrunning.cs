@@ -34,7 +34,7 @@ namespace Terryfall
 			if ( wallLeftTrace.Hit )
 			{
 				Wallrunning.wallLeft = true;
-				Log.Info( "Wall on left" );
+				//Log.Info( "Wall on left" );
 			}
 			else
 			{
@@ -54,7 +54,7 @@ namespace Terryfall
 			if ( wallRightTrace.Hit )
 			{
 				Wallrunning.wallRight = true;
-				Log.Info( "Wall on right" );
+				//Log.Info( "Wall on right" );
 			}
 			else
 			{

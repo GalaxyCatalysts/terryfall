@@ -50,11 +50,11 @@ namespace Terryfall
 
 			if ( Wallrunning.wallLeft )
 			{
-				Log.Info( "cool running on left good job" );
+				//Log.Info( "cool running on left good job" );
 			}
 			else if ( Wallrunning.wallRight )
 			{
-				Log.Info( "cool running on right good job" );
+				//Log.Info( "cool running on right good job" );
 			}
 			else
 			{
