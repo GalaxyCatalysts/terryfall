@@ -29,7 +29,7 @@ namespace Terryfall
 			if ( !IsClient )
 				return;
 
-			RootPanel.StyleSheet.Load( "/overflowhud.scss" );
+			RootPanel.StyleSheet.Load( "/ui/terryfallhud.scss" );
 
 			RootPanel.AddChild<ChatBox>();
 			RootPanel.AddChild<NameTags>();
