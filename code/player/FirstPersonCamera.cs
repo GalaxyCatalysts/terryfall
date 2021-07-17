@@ -10,7 +10,6 @@ namespace Terryfall
 	public class FirstPersonCamera : Camera
 	{
 		public float walkingFov = 100.0f;
-		public float wallrunningFov = 120.0f;
 		public float FovSpeed = 10.0f;
 
 		Vector3 lastPos;
@@ -46,7 +45,7 @@ namespace Terryfall
 
 			if(Wallrunning.wallLeft || Wallrunning.wallRight)
 			{
-				FieldOfView = MathX.LerpTo( FieldOfView, wallrunningFov, FovSpeed * Time.Delta );
+				FieldOfView = MathX.LerpTo( FieldOfView, walkingFov + 10.0f, FovSpeed * Time.Delta );
 			}
 
 			if ( Wallrunning.wallLeft )
