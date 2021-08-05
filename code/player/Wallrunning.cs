@@ -7,7 +7,7 @@ namespace Terryfall
 	{
 		public static bool wallLeft { get; set; }
 		public static bool wallRight { get; set; }
-		public static float wallGravity { get; set; } = 10f;
+		public static float wallGravity { get; set; } = 100f;
 	}
 	partial class TPlayer
 	{

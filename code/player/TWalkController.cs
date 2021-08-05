@@ -31,7 +31,7 @@ namespace Terryfall
 		public float BodyGirth { get; set; } = 32.0f;
 		public float BodyHeight { get; set; } = 72.0f;
 		public float EyeHeight { get; set; } = 64.0f;
-		public float Gravity { get; set; } = 800.0f;
+		public float Gravity = 800.0f;
 		public float AirControl { get; set; } = 20.0f;
 		public bool Swimming { get; set; } = false;
 		public bool AutoJump { get; set; } = true;
@@ -127,7 +127,8 @@ namespace Terryfall
 			}
 			else
 			{
-				Log.Info( $"else: WallLeft: {Wallrunning.wallLeft}, WallRight: {Wallrunning.wallRight}" );
+				//ResetWallrunGravity();
+				//Log.Info( $"else: WallLeft: {Wallrunning.wallLeft}, WallRight: {Wallrunning.wallRight}" );
 			}
 
 			//Velocity += BaseVelocity * ( 1 + Time.Delta * 0.5f );
