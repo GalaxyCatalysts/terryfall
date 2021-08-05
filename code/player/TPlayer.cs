@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Terryfall
 {
-	partial class TerryfallPlayer : Player
+	partial class TPlayer : Player
 	{
 		private DamageInfo lastDamage;
 
@@ -12,19 +12,10 @@ namespace Terryfall
 		{
 			SetModel( "models/citizen/citizen.vmdl" );
 
-			//
-			// Use WalkController for movement (you can make your own PlayerController for 100% control)
-			//
-			Controller = new TerryfallWalkController();
-
-			//
-			// Use StandardPlayerAnimator  (you can make your own PlayerAnimator for 100% control)
-			//
+			Controller = new WalkController();
 			Animator = new StandardPlayerAnimator();
 
-			//
-			// Use ThirdPersonCamera (you can make your own Camera for 100% control)
-			//
+			// Custom camera
 			Camera = new FirstPersonCamera();
 
 			EnableAllCollisions = true;
@@ -37,9 +28,6 @@ namespace Terryfall
 			base.Respawn();
 		}
 
-		/// <summary>
-		/// Called every tick, clientside and serverside.
-		/// </summary>
 		public override void Simulate( Client cl )
 		{
 			base.Simulate( cl );

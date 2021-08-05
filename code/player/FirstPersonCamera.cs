@@ -9,7 +9,7 @@ namespace Terryfall
 {
 	public class FirstPersonCamera : Camera
 	{
-		public float walkingFov = 100.0f;
+		public float walkingFov = 80.0f;
 		public float FovSpeed = 10.0f;
 
 		Vector3 lastPos;

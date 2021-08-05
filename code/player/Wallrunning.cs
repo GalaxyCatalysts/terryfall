@@ -8,10 +8,13 @@ namespace Terryfall
 		public static bool wallLeft { get; set; }
 		public static bool wallRight { get; set; }
 	}
-	partial class TerryfallPlayer
+	partial class TPlayer
 	{
 		public float BodyHeight = 72.0f;
 		public float WallDistance = 20.0f;
+
+		public static TraceResult wallLeftTrace;
+		public static TraceResult wallRightTrace;
 
 		public void CheckforWallrun()
 		{
@@ -27,11 +30,11 @@ namespace Terryfall
 			var startPos = EyePos;
 			var endPos = EyePos + EyeRot.Left * WallDistance;
 
-			var wallLeftTrace = Trace.Ray( startPos, endPos )
+			wallLeftTrace = Trace.Ray( startPos, endPos )
 				.WorldOnly()
 				.Run();
 
-			if ( wallLeftTrace.Hit )
+			if ( wallLeftTrace.Hit && GroundEntity == null )
 			{
 				Wallrunning.wallLeft = true;
 				//Log.Info( "Wall on left" );
@@ -51,7 +54,7 @@ namespace Terryfall
 				.WorldOnly()
 				.Run();
 
-			if ( wallRightTrace.Hit )
+			if ( wallRightTrace.Hit && GroundEntity == null )
 			{
 				Wallrunning.wallRight = true;
 				//Log.Info( "Wall on right" );

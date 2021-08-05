@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace Terryfall
 {
 	[Library]
-	public class TerryfallWalkController : BasePlayerController
+	public class TWalkController : BasePlayerController
 	{
 		public float SprintSpeed { get; set; } = 320.0f;
 		public float WalkSpeed { get; set; } = 150.0f;
@@ -34,13 +34,13 @@ namespace Terryfall
 		public float Gravity { get; set; } = 800.0f;
 		public float AirControl { get; set; } = 20.0f;
 		public bool Swimming { get; set; } = false;
-		public bool AutoJump { get; set; } = false;
+		public bool AutoJump { get; set; } = true;
 
 		public Duck Duck;
 		public Unstuck Unstuck;
 
 
-		public TerryfallWalkController()
+		public TWalkController()
 		{
 			Duck = new Duck( this );
 			Unstuck = new Unstuck( this );
@@ -109,6 +109,15 @@ namespace Terryfall
 			EyeRot = Input.Rotation;
 
 			RestoreGroundPos();
+
+			if( Wallrunning.wallLeft )
+			{
+				RunOnLeftWall();
+			}
+			else if( Wallrunning.wallRight )
+			{
+				RunOnRightWall();
+			}
 
 			//Velocity += BaseVelocity * ( 1 + Time.Delta * 0.5f );
 			//BaseVelocity = Vector3.Zero;
@@ -254,6 +263,19 @@ namespace Terryfall
 				DebugOverlay.ScreenText( lineOffset + 4, $" SurfaceFriction: {SurfaceFriction}" );
 				DebugOverlay.ScreenText( lineOffset + 5, $"    WishVelocity: {WishVelocity}" );
 			}
+
+		}
+
+		public void RunOnLeftWall()
+		{
+			var wishDir = Vector3.Left;
+			var wishSpeed = 1000f;
+
+			Accelerate( wishDir, wishSpeed, 0, AirAcceleration);
+			Log.Info($"Normal is {TPlayer.wallLeftTrace.Normal}");
+		}
+		public void RunOnRightWall()
+		{
 
 		}
 

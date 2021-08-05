@@ -10,26 +10,26 @@ namespace Terryfall
 	/// This is the HUD entity. It creates a RootPanel clientside, which can be accessed
 	/// via RootPanel on this entity, or Local.Hud.
 	/// </summary>
-	public partial class TerryfallHudEntity : Sandbox.HudEntity<RootPanel>
+	public partial class THudEntity : HudEntity<RootPanel>
 	{
-		public TerryfallHudEntity()
+		public THudEntity()
 		{
 			if ( IsClient )
 			{
-				RootPanel.SetTemplate( "/ui/terryfallhud.html" );
+				RootPanel.SetTemplate( "/ui/thud.html" );
 			}
 		}
 	}
 
 	[Library]
-	public partial class TerryfallHUD : HudEntity<RootPanel>
+	public partial class THUD : HudEntity<RootPanel>
 	{
-		public TerryfallHUD()
+		public THUD()
 		{
 			if ( !IsClient )
 				return;
 
-			RootPanel.StyleSheet.Load( "/ui/terryfallhud.scss" );
+			RootPanel.StyleSheet.Load( "/ui/thud.scss" );
 
 			RootPanel.AddChild<ChatBox>();
 			RootPanel.AddChild<NameTags>();

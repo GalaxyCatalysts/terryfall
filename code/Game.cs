@@ -28,19 +28,19 @@ namespace Terryfall
 		{
 			if ( IsServer )
 			{
-				Log.Info( "My Gamemode Has Created Serverside!" );
+				Log.Info( "Server created" );
 
 				// Create a HUD entity. This entity is globally networked
 				// and when it is created clientside it creates the actual
 				// UI panels. You don't have to create your HUD via an entity,
 				// this just feels like a nice neat way to do it.
-				new TerryfallHudEntity();
-				new TerryfallHUD();
+				new THudEntity();
+				new THUD();
 			}
 
 			if ( IsClient )
 			{
-				Log.Info( "My Gamemode Has Created Clientside!" );
+				Log.Info( "Client Created" );
 			}
 		}
 
@@ -51,7 +51,7 @@ namespace Terryfall
 		{
 			base.ClientJoined( client );
 
-			var player = new TerryfallPlayer();
+			var player = new TPlayer();
 			client.Pawn = player;
 
 			player.Respawn();

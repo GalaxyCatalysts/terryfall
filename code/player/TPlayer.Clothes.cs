@@ -2,7 +2,7 @@
 
 namespace Terryfall
 {
-	partial class TerryfallPlayer
+	partial class TPlayer
 	{
 		ModelEntity pants;
 		ModelEntity jacket;
@@ -28,7 +28,7 @@ namespace Terryfall
 					"models/citizen/clothes/trousers_tracksuit.vmdl",
 					"models/citizen_clothes/trousers/trousers_tracksuitblue.vmdl",
 					"models/citizen_clothes/trousers/trousers_tracksuit.vmdl",
-					"models/citizen_clothes/shoes/shorts.cargo.vmdl",
+					//"models/citizen_clothes/shoes/shorts.cargo.vmdl",
 				} );
 
 				pants = new ModelEntity();
