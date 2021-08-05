@@ -7,6 +7,7 @@ namespace Terryfall
 	{
 		public static bool wallLeft { get; set; }
 		public static bool wallRight { get; set; }
+		public static float wallGravity { get; set; } = 10f;
 	}
 	partial class TPlayer
 	{
@@ -43,7 +44,6 @@ namespace Terryfall
 			{
 				Wallrunning.wallLeft = false;
 			}
-
 		}
 
 		void WallRightTrace()

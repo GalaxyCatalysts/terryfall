@@ -36,12 +36,15 @@ namespace Terryfall
 		public bool Swimming { get; set; } = false;
 		public bool AutoJump { get; set; } = true;
 
+		private float defaultGravity;
+
 		public Duck Duck;
 		public Unstuck Unstuck;
 
 
 		public TWalkController()
 		{
+			defaultGravity = Gravity;
 			Duck = new Duck( this );
 			Unstuck = new Unstuck( this );
 		}
@@ -110,13 +113,21 @@ namespace Terryfall
 
 			RestoreGroundPos();
 
-			if( Wallrunning.wallLeft )
+			if ( Wallrunning.wallLeft )
 			{
+				Log.Info( $"if: WallLeft: {Wallrunning.wallLeft}, WallRight: {Wallrunning.wallRight}" );
 				RunOnLeftWall();
+				SetWallrunGravity();
 			}
-			else if( Wallrunning.wallRight )
+			else if ( Wallrunning.wallRight )
 			{
+				Log.Info( $"else if: WallLeft: {Wallrunning.wallLeft}, WallRight: {Wallrunning.wallRight}" );
 				RunOnRightWall();
+				SetWallrunGravity();
+			}
+			else
+			{
+				Log.Info( $"else: WallLeft: {Wallrunning.wallLeft}, WallRight: {Wallrunning.wallRight}" );
 			}
 
 			//Velocity += BaseVelocity * ( 1 + Time.Delta * 0.5f );
@@ -268,15 +279,24 @@ namespace Terryfall
 
 		public void RunOnLeftWall()
 		{
-			var wishDir = Vector3.Left;
-			var wishSpeed = 1000f;
-
-			Accelerate( wishDir, wishSpeed, 0, AirAcceleration);
-			Log.Info($"Normal is {TPlayer.wallLeftTrace.Normal}");
+			// TODO: Make this work
 		}
 		public void RunOnRightWall()
 		{
+			// TODO: Make this work
+		}
 
+		void SetWallrunGravity()
+		{
+			Log.Info( $"Setting default gravity to {defaultGravity}" );
+			Log.Info( $"Setting gravity to {Wallrunning.wallGravity}" );
+			Gravity = Wallrunning.wallGravity;
+		}
+
+		void ResetWallrunGravity()
+		{
+			Log.Info( $"Setting gravity back to {defaultGravity}" );
+			Gravity = defaultGravity;
 		}
 
 		public virtual float GetWishSpeed()

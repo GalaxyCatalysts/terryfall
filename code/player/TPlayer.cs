@@ -12,7 +12,8 @@ namespace Terryfall
 		{
 			SetModel( "models/citizen/citizen.vmdl" );
 
-			Controller = new WalkController();
+			// Custom walk controller
+			Controller = new TWalkController();
 			Animator = new StandardPlayerAnimator();
 
 			// Custom camera
