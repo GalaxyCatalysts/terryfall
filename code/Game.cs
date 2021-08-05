@@ -16,8 +16,9 @@ namespace Terryfall
 			{
 				Log.Info( "Server created" );
 
-				// Create a HUD entity and code based HUD
+				// HTML based styling
 				new THudEntity();
+				// Code based styling
 				new THUD();
 			}
 
