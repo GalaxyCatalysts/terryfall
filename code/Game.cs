@@ -19,7 +19,7 @@ namespace Terryfall
 				// HTML based styling
 				new THudEntity();
 				// Code based styling
-				new THUD();
+				new THud();
 			}
 
 			if ( IsClient )
