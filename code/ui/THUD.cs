@@ -3,26 +3,19 @@ using Sandbox.UI;
 
 namespace Terryfall
 {
-	public partial class THudEntity : HudEntity<RootPanel>
-	{
-		public THudEntity()
-		{
-			if ( IsClient )
-			{
-				RootPanel.SetTemplate( "/ui/THud.html" );
-			}
-		}
-	}
-
 	[Library]
 	public partial class THud : HudEntity<RootPanel>
 	{
+		public static Panel MainPanel;
+
 		public THud()
 		{
 			if ( !IsClient )
 				return;
 
-			RootPanel.StyleSheet.Load( "/ui/THUD.scss" );
+			RootPanel.SetTemplate( "/ui/HTMLPanel.html" );
+			
+			MainPanel = RootPanel.AddChild<MainPanel>();
 
 			RootPanel.AddChild<ChatBox>();
 			RootPanel.AddChild<NameTags>();
