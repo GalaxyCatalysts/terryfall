@@ -16,7 +16,7 @@ namespace Terryfall
 		{
 			if ( IsClient )
 			{
-				RootPanel.SetTemplate( "/ui/thud.html" );
+				RootPanel.SetTemplate( "/ui/THUD.html" );
 			}
 		}
 	}
@@ -29,7 +29,7 @@ namespace Terryfall
 			if ( !IsClient )
 				return;
 
-			RootPanel.StyleSheet.Load( "/ui/thud.scss" );
+			RootPanel.StyleSheet.Load( "/ui/THUD.scss" );
 
 			RootPanel.AddChild<ChatBox>();
 			RootPanel.AddChild<NameTags>();
